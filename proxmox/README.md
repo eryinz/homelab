@@ -26,6 +26,7 @@ qm importdisk 1000 debian-13-generic-amd64.qcow2 ocean
 # fan speed
 #### because I run a supermicro server sometimes the fan speed gets really out of hand and so I have to manually adjust it. luckily I've automated this.
 be sure you're in the /root directory of your proxmox
+
 `mkdir scripts`
 `cd scripts`
 `touch fan-speed.sh;nano fan-speed.sh`
