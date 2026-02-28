@@ -11,7 +11,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 ```
 wget https://cdimage.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.qcow2
 
-qm set 1000 --serial0 socketr --vga serial0
+qm set 1000 --serial0 socket --vga serial0
 
 qemu-img resize debian-13-generic-amd64.qcow2 32G
 
