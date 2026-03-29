@@ -13,13 +13,11 @@ wget https://cdimage.debian.org/images/cloud/trixie/latest/debian-13-generic-amd
 
 qm set 1000 --serial0 socket --vga serial0
 
-qemu-img resize debian-13-generic-amd64.qcow2 32G
+qemu-img resize debian-13-generic-amd64.qcow2 16G
 
-virt-customize -a debian-13-generic-amd64.qcow2 --install qemu-guest-agent,docker.io,docker-compose,git,wget,curl,rsync,htop,nano,vim,tmux,fastfetch,fail2ban,ufw,zip,unzip,tar
-
-virt-customize -a debian-13-generic-amd64.qcow2 --run-command "sudo usermod -aG docker $USER"
-
-virt-customize -a debian-13-generic-amd64.qcow2 --run-command "truncate -s 0 /etc/machine-id"
+virt-customize -a debian-13-generic-amd64.qcow2 \
+  --install qemu-guest-agent,docker.io,docker-compose,git,wget,curl,rsync,htop,nano,tmux,fastfetch,fail2ban,ufw,zip,unzip,tar \
+  --run-command "truncate -s 0 /etc/machine-id"
 
 qm importdisk 1000 debian-13-generic-amd64.qcow2 ocean
 ```
